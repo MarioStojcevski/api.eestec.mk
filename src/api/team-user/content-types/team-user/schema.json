@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "team_users",
+  "info": {
+    "singularName": "team-user",
+    "pluralName": "team-users",
+    "displayName": "Team_User"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "userRole": {
+      "type": "enumeration",
+      "enum": [
+        "president",
+        "vice president",
+        "contact person",
+        "pr coordinator",
+        "hr coordinator",
+        "fr coordinator",
+        "it coordinator",
+        "treasurer",
+        "head organiser",
+        "team leader",
+        "team member"
+      ],
+      "required": true,
+      "default": "team member"
+    },
+    "teamId": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::team.team"
+    },
+    "userId": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "plugin::users-permissions.user"
+    }
+  }
+}
